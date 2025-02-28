@@ -29,7 +29,7 @@ public class Assassin extends Personnage {
         @Override
         public void attaquer(Personnage cible) {
             int degats = this.getAttaque() - cible.getDefense();
-            if (Math.random() < 0.20) {
+            if (Math.random() < 0.05) {
                 degats += this.bonusAttaque;
             }
             if (degats > 0) {
