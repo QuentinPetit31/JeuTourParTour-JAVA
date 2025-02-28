@@ -11,15 +11,6 @@ public class Personnage {
      * Constructeurs
      * */
 
-    public class Personnage {
-        // Attributs privés
-        private String nom;
-        private int vie;
-        private int attaque;
-        private int defense;
-
-
-        // Constructeur avec paramètres
         public Personnage(String nom, int vie, int attaque, int defense) {
             this.nom = nom;
             this.vie = vie;
@@ -68,12 +59,11 @@ public class Personnage {
      * Méthodes
      * */
 
-    @Override
-    public String toString() {
-        return "Roles{" +
-                "rolesName='" + rolesName + '\'' +
-                '}';
-    }
-}
+    public void attaquer(Personnage cible) {
+        int degats = this.attaque - cible.getDefense();
+        if (degats > 0) {
+            cible.setVie(cible.getVie() - degats);
+        }
+
 
 }
