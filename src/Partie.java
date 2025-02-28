@@ -2,36 +2,36 @@ class Partie {
     /*
      * Attributs
      * */
-    private Personnage joueur1;
-    private Personnage joueur2;
+    private final Personnage darkMax;
+    private final Personnage covid19;
     private int nbrTour;
 
     /*
      * Constructeurs
      * */
-    public Partie(Personnage joueur1, Personnage joueur2, int nbrTour) {
-        this.joueur1 = joueur1;
-        this.joueur2 = joueur2;
+    public Partie(Personnage darkMax, Personnage covid19, int nbrTour) {
+        this.darkMax = darkMax;
+        this.covid19 = covid19;
         this.nbrTour = nbrTour;
     }
 
     /*
      * Getters et Setters
      * */
-    public Personnage getJoueur1() {
-        return joueur1;
+    public Personnage getDarkMax() {
+        return darkMax;
     }
 
-    public void setJoueur1(Personnage joueur1) {
-        this.joueur1 = joueur1;
+    public void setJoueur1(Personnage darkMax) {
+        this.darkMax = darkMax;
     }
 
-    public Personnage getJoueur2() {
-        return joueur2;
+    public Personnage getCovid19() {
+        return covid19;
     }
 
-    public void setJoueur2(Personnage joueur2) {
-        this.joueur2 = joueur2;
+    public void setCovid19(Personnage covid19) {
+        this.covid19 = covid19;
     }
 
     public int getNbrTour() {
@@ -47,18 +47,18 @@ class Partie {
      * */
     public String lancerPartie() {
         while (nbrTour > 0) {
-            joueur1.attaquer(joueur2);
-            if (joueur2.getVie() <= 0) return "Le gagnant est " + joueur1.getNom();
+            darkMax.attaquer(covid19);
+            if (covid19.getVie() <= 0) return "Le gagnant est " + darkMax.getNom();
 
-            joueur2.attaquer(joueur1);
-            if (joueur1.getVie() <= 0) return "Le gagnant est " + joueur2.getNom();
+            covid19.attaquer(darkMax);
+            if (darkMax.getVie() <= 0) return "Le gagnant est " + covid19.getNom();
 
             nbrTour--;
         }
 
-        if (joueur1.getVie() > 0 && joueur2.getVie() > 0) {
+        if (darkMax.getVie() > 0 && covid19.getVie() > 0) {
             return "Égalité";
         }
-        return joueur1.getVie() > 0 ? "Le gagnant est " + joueur1.getNom() : "Le gagnant est " + joueur2.getNom();
+        return darkMax.getVie() > 0 ? "Le gagnant est " + darkMax.getNom() : "Le gagnant est " + covid19.getNom();
     }
 }
